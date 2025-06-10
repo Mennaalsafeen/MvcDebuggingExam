@@ -35,7 +35,9 @@ namespace MvcDebuggingExam.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Product product)
+
         {
             if (ModelState.IsValid)
             {
