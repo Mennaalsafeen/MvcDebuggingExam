@@ -28,7 +28,7 @@ namespace MvcDebuggingExam.Controllers
             return View(product);
         }
 
-        
+
         public IActionResult Create()
         {
             return View();
@@ -81,6 +81,7 @@ namespace MvcDebuggingExam.Controllers
             return View(product);
         }
 
+        // GET: عرض صفحة تأكيد الحذف (اختياري)
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -89,9 +90,10 @@ namespace MvcDebuggingExam.Controllers
             {
                 return NotFound();
             }
-            return View(product);
+            return View(product);  // يحتاج ملف Delete.cshtml
         }
 
+        // POST: تنفيذ الحذف فعلياً
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
@@ -103,5 +105,6 @@ namespace MvcDebuggingExam.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
